@@ -1,0 +1,19 @@
+﻿@{
+	Mascota mascota = ViewData["MASCOTA"] as Mascota;
+}
+
+<h1>Are you awake</h1>
+
+<h2>@ViewData["MENSAJE"]</h2>
+
+@if(mascota != null ){
+	@mascota.Nombre
+	<br />
+	@mascota.Raza
+	<br />
+	@mascota.Edad
+}
+
+
+<a asp-controller="EjemploSession" asp-action="SessionMascotaJson" asp-route-accion="mostrar">Mostrar</a>
+<a asp-controller="EjemploSession" asp-action="SessionMascotaJson" asp-route-accion="almacenar">Almacenar</a>
