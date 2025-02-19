@@ -1,0 +1,18 @@
+﻿@model List<Mascota>;
+
+	<h1>Collection mascotas</h1>
+
+	@if(Model != null){
+		<ul>
+			@foreach (Mascota m in Model)
+			{
+				<li>@m.Nombre<br /> @m.Raza <br /> @m.Edad</li>
+			}
+		</ul>
+	}
+
+	<h2>@ViewData["MENSAJE"]</h2>
+	
+
+	<a asp-action="SessionMascotaCollection" asp-controller="EjemploSession" asp-route-accion="mostrar">Mostrar</a>
+	<a asp-action="SessionMascotaCollection" asp-controller="EjemploSession" asp-route-accion="almacenar">Almacenar</a>

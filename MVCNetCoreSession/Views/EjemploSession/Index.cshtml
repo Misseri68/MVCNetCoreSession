@@ -1,16 +1,6 @@
 ﻿@using MVCNetCoreSession.Helpers
 @{
-	Mascota mascota = null;
-
-	string data = Context.Session.GetString("MASCOTA");
-
-	if (Context.Session.GetString("MASCOTA") != null)
-	{
-
-		mascota = HelperJsonSession.DeserializeObject<Mascota>(data);
-	}
-
-	
+	Mascota mascota = Context.Session.GetObject<Mascota>("MASCOTAOBJECT");
 }
 
 @if(mascota != null){
@@ -35,5 +25,11 @@
 	</li>
 	<li class="list-group-item">
 		<a asp-controller="EjemploSession" asp-action="SessionMascotaJson">Sesion mascota json</a>
+	</li>
+	<li class="list-group-item">
+		<a asp-controller="EjemploSession" asp-action="SessionMascotaCollection">Sesion mascota collection</a>
+	</li>
+	<li class="list-group-item">
+		<a asp-controller="EjemploSession" asp-action="SessionMascotaCollection">Sesion mascota collection</a>
 	</li>
 </ul>

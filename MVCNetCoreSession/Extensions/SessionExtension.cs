@@ -1,5 +1,5 @@
 ﻿using MVCNetCoreSession.Helpers;
-
+using Newtonsoft.Json;
 namespace MVCNetCoreSession.Extensions
 {
     public static class SessionExtension  
@@ -10,7 +10,7 @@ namespace MVCNetCoreSession.Extensions
 
             if (json != null)
             {
-                T data = HelperJsonSession.DeserializeObject<T>(json);
+                T data = JsonConvert.DeserializeObject<T>(json);
                 return data;
             }
             else
@@ -21,7 +21,7 @@ namespace MVCNetCoreSession.Extensions
 
         public static void SetObject(this ISession session, string key, object value)
         {
-            string data = HelperJsonSession.SerializeObject(value);
+            string data = JsonConvert.SerializeObject(value);
             session.SetString(key, data);
         }
 
